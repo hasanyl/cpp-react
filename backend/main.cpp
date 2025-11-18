@@ -4,7 +4,6 @@
 #include "sha256.h"
 
 // --- AYARLAR ---
-// Veritabani ismini degistirdik. Bu sayede TERTEMIZ bir baslangic yapiyoruz.
 const char* DB_NAME = "db_v2.db"; 
 
 // --- YARDIMCI FONKSIYONLAR ---
@@ -67,7 +66,7 @@ bool kullaniciKayit(std::string user, std::string pass, std::string& outMesaj) {
         return false;
     }
 
-    // --- DEBUG LOG (KAYIT ANI) ---
+    // --- DEBUG LOG ---
     std::string guvenliSifre = sha256(pass);
     std::cout << ">>> KAYIT OLUYOR..." << std::endl;
     std::cout << "Kullanici: [" << user << "]" << std::endl;
@@ -101,7 +100,7 @@ bool kullaniciKontrol(std::string user, std::string pass) {
         return false;
     }
 
-    // --- DEBUG LOG (GIRIS ANI) ---
+    // --- DEBUG LOG ---
     std::string guvenliSifre = sha256(pass);
     std::cout << ">>> GIRIS DENENIYOR..." << std::endl;
     std::cout << "Aranan Kullanici: [" << user << "]" << std::endl;
